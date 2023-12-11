@@ -9,6 +9,9 @@ public:
     View(Model* model, Console* console);
     ~View() {};
     virtual void update() override;
+
+    virtual void change_window() override ;
+    virtual void get_size(unsigned int* x, unsigned int* y) override;
 private:
     unsigned int screen_size_x_, screen_size_y_;
     unsigned int header_window_id_;

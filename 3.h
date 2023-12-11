@@ -1,0 +1,6 @@
+#pragma once
+
+#define INSERT_COMMAND_MODE 0
+#define MOVE_COMMAND_MODE 1
+#define INSERT_CONTENT_MODE 2
+#define MOVE_CONTENT_MODE 3

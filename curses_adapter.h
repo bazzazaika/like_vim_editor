@@ -19,9 +19,11 @@ public:
 		int h, int w, int color_pair) override;
 	virtual void delete_window(unsigned int window_id) override;
 	virtual void clear_window(unsigned int window_id) override;
-	virtual void write_window(unsigned int window_id, const MyString& str) override;
+	virtual void write_window(unsigned int window_id, const MyString& str, unsigned int y) override;
 	virtual void refresh_window(unsigned int window_id) override;
 	virtual void set_active_window(unsigned int window_id) override;
 	virtual void set_cursor(unsigned int window_id, unsigned int y, unsigned int x) override;
 	virtual int get_input() override;
+
+	//virtual void init_cursor(unsigned int window_id, unsigned int y, unsigned int x) override;
 };

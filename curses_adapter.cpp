@@ -28,6 +28,12 @@ void CursesAdapter::get_size(unsigned int* x, unsigned int* y) {
     *y = getmaxy(stdscr);
 }
 
+//void CursesAdapter::init_cursor(unsigned int window_id, unsigned int y, unsigned int x) {
+//    this->active_window_ = this->windows_[window_id];
+//    wmove(this->active_window_, y, x);
+//    
+//}
+
 void CursesAdapter::set_cursor(unsigned int window_id, unsigned int y, unsigned int x) {
     this->active_window_ = this->windows_[window_id];
     wmove(this->active_window_, y, x);
@@ -55,9 +61,31 @@ void CursesAdapter::delete_window(unsigned int window_id) {
     refresh();
 }
 
-void CursesAdapter::write_window(unsigned int window_id, const MyString& str) {
+//void CursesAdapter::write_window(unsigned int window_id, const MyString& str) {
+//    WINDOW* cur_window = this->windows_[window_id];
+//    
+//    mvwprintw(cur_window, 0, 0, str.c_str());
+//}
+
+void CursesAdapter::write_window(unsigned int window_id, const MyString& str, unsigned int y) {
     WINDOW* cur_window = this->windows_[window_id];
-    mvwprintw(cur_window, 0, 0, str.c_str());
+    //const char* data = str.c_str();
+    //int length = str.length();
+    //int index = 0;
+    //const int buffer_size = 512;
+
+    //while (index < length) {
+    //    int remaining = length - index;
+    //    int chunk_size = (remaining > buffer_size) ? buffer_size : remaining;
+
+    //    mvwprintw(cur_window, 0, 0, "%.*s", chunk_size, data + index);
+    //    //wrefresh(cur_window);
+
+    //    index += chunk_size;
+    //}
+    //int y, x;
+    //getyx(cur_window, y, x);
+    mvwprintw(cur_window, y,0, str.c_str());
 }
 
 void CursesAdapter::clear_window(unsigned int window_id) {
@@ -70,4 +98,5 @@ void CursesAdapter::refresh_window(unsigned int window_id) {
 
 void CursesAdapter::set_active_window(unsigned int window_id) {
     this->active_window_ = this->windows_[window_id];
+
 }
